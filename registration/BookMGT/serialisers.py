@@ -10,6 +10,7 @@ class feedback_Serialiser(serializers.ModelSerializer):
     class Meta:
         models=feedback
         fields='__all__'
+        
 class Fine_Serialiser(serializers.ModelSerializer):
     class Meta:
         models=Fine
