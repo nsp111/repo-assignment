@@ -1,4 +1,5 @@
 from django.db import models
+#from Account.models import User
 
 Category=[
     ('OOP','OOP'),
@@ -20,8 +21,9 @@ Fine_Category=[
 ]
 
 class Books(models.Model):
-    title=models.CharField(max_length=100, null=False, blank=False)
-    ISBN=models.CharField(max_length=50, primary_key=True, null=False, blank=False)
+    #user=models.OneToOneField(User , related_name="user", on_delete=models.CASCADE)
+    title=models.CharField(max_length=100, null=False)
+    ISBN=models.CharField(max_length=50, primary_key=True, null=False)
     category=models.CharField(choices=Category, max_length=50)
     desciption=models.TextField()
     publisheDate=models.DateField()
@@ -33,12 +35,14 @@ class Books(models.Model):
         return self.title
 
 class feedback(models.Model):
+    #user=models.OneToOneField(User , related_name="user", on_delete=models.CASCADE)
     feedback=models.TextField()
     book=models.ForeignKey(Books, verbose_name=("Bookfeedback"), on_delete=models.CASCADE)
     def __str__(self):
         return self.feedback
 
 class Fine(models.Model):
+    
     category=models.CharField(choices=Fine_Category, max_length=50, default='Book Lost')
     book=models.OneToOneField(Books, verbose_name=("bookFine"), on_delete=models.CASCADE)
     dueDate=models.DateField(auto_now_add=True)

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'BookMGT',
-    'rest_framework'
+    'rest_framework',
+    'Account'
 ]
 
 AUTH_USER_MODEL="Account.User"
@@ -77,13 +78,21 @@ WSGI_APPLICATION = 'registration.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.mysql',
-'NAME': 'booskdb',
-'USER': 'root',
-'PASSWORD':'',
-'HOST': 'localhost',
-'PORT': '3306',
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'book_DB',
+
+        'USER': 'postgres',
+
+        'PASSWORD': '781227',
+
+        'HOST': 'localhost',
+
+        'PORT': '5432',
+
     }
 }
 

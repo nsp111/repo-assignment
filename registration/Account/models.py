@@ -55,7 +55,7 @@ class User(auth_models.AbstractUser):
     username=models.CharField(max_length=50)
 
     USERNAME_FIELD='email'
-    REQUIRED_FIELDS= ['email', 'password', 'usertype']
+    REQUIRED_FIELDS= ['password', 'usertype']
 
     is_active = models.BooleanField(default=False)
     is_librarian = models.BooleanField(default=False)
@@ -66,7 +66,3 @@ class User(auth_models.AbstractUser):
 
     def __str__(self):
          return self.email
-
-
-
-
